@@ -1,11 +1,11 @@
 # Stack
 
-[Angular 7](https://angular.io/)
-TypeScript
-HTML
-CSS
-[RxJS] (https://github.com/ReactiveX/rxjs)
-[Spectre] (https://picturepan2.github.io/spectre/)
+[Angular 7](https://angular.io/)<br />
+TypeScript<br />
+HTML<br />
+CSS<br />
+[RxJS](https://github.com/ReactiveX/rxjs)<br />
+[Spectre](https://picturepan2.github.io/spectre/)
 
 # ImageGallery
 
