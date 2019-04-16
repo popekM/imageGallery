@@ -1,0 +1,11 @@
+.card {
+  margin-bottom: 20px;
+}
+
+.blur {
+  filter:blur(5px);
+}
+
+.img-responsive {
+  min-width: 100%;
+}

@@ -1,0 +1,8 @@
+<div class="card c-hand" [class.bg-secondary]="mouseOver" (mouseenter) ="mouseEnter()" (mouseleave) ="mouseLeave()">
+  <div class="card-header">
+    <div class="card-title h5 text-dark">{{ imageItem.title}}</div>
+  </div>
+  <div class="card-image" [class.blur]="mouseOver">
+    <img class="img-responsive" [src]="imageItem.urls.small" [alt]="imageItem.title">
+  </div>
+</div>

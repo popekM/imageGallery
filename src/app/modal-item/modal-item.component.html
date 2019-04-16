@@ -1,0 +1,56 @@
+<div class="modal modal-lg active">
+  <div class="modal-overlay"></div>
+  <div class="modal-container">
+    <ng-container *ngIf="imageData !== null; else imageRemoved">
+      <div class="modal-header">
+        <span  class="btn btn-clear float-right" aria-label="Close" (click)="closeModal()"></span>
+        <div class="modal-title h5">{{ imageData.title }}</div>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <img
+            [class.img-responsive]="!fullSizeImageMode"
+            [class.c-zoom-in]="!fullSizeImageMode"
+            [class.c-zoom-out]="fullSizeImageMode"
+            [src]="fullSizeImageMode ? imageData.urls.original : imageData.urls.medium"
+            [alt]="imageData.title"
+            (click)="toggleFullSizeImage()">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button *ngIf="imageData.isPreviousElement" class="btn btn-margin btn-primary btn-action btn-lg" (click)="previousImage()">
+          <i class="icon icon-arrow-left"></i>
+        </button>
+        <button *ngIf="imageData.isNextElement" class="btn btn-margin btn-primary btn-action btn-lg" (click)="nextImage()">
+          <i  class="icon icon-arrow-right"></i>
+        </button>
+        <button class="btn btn-margin btn-error btn-action btn-lg" (click)="removeImage()">
+          <i class="icon icon-delete"></i>
+        </button>
+        <button *ngIf="!editTitleMode; else editTitleModeTemplate" class="btn btn-margin btn-secondary btn-action btn-lg" (click)="enableTitleMode()">
+          <i class="icon icon-edit"></i>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #imageRemoved>
+  <div class="modal-header">
+    <span class="btn btn-clear float-right" (click)="closeModal()" aria-label="Close"></span>
+    <span class="label label-success">The image has been deleted successfully.</span>
+  </div>
+</ng-template>
+
+<ng-template #editTitleModeTemplate>
+  <div class="input-group">
+    <span class="input-group-addon text-dark">Rename image:</span>
+    <input class="form-input" type="text" placeholder="Title" [(ngModel)]="newTitle">
+    <button class="btn btn-success input-group-btn" (click)="saveNewTitle()">
+      <i class="icon icon-check"></i>
+    </button>
+    <button class="btn btn-error input-group-btn" (click)="disableTitleMode()">
+      <i class="icon icon-cross"></i>
+    </button>
+  </div>
+</ng-template>
